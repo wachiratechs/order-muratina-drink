@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products — Order Muratina Drink</title>
+  <link rel="stylesheet" href="file.css?v=5"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <nav id="navbar">
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+      <svg class="ni" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6l16 0"/><path d="M4 12l16 0"/><path d="M4 18l16 0"/></svg><span>Menu</span>
+    </button>
+    <div class="nav-title">Products</div>
+    <button class="nav-order" onclick="orderNow('Hi! I want to place an order.')">
+      📱 Order<span class="long"> on WhatsApp</span>
+    </button>
+  </nav>
+
+  <!-- HAMBURGER MENU -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Menu">
+    <div class="drawer-head">
+      <span class="drawer-brand">Order Muratina Drink</span>
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="Close menu"><svg class="ni" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button>
+    </div>
+    <ul class="drawer-links">
+      <li><a href="index.html" data-page="index.html"><svg class="ni" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l-2 0l9 -9l9 9l-2 0"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></svg><span>Home</span></a></li>
+      <li><a href="products.html" data-page="products.html"><svg class="ni" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z"/><path d="M9 11v-5a3 3 0 0 1 6 0v5"/></svg><span>Products</span></a></li>
+      <li><a href="about.html" data-page="about.html"><svg class="ni" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/><path d="M12 9h.01"/><path d="M11 12h1v4h1"/></svg><span>About</span></a></li>
+      <li><a href="contact.html" data-page="contact.html"><svg class="ni" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg><span>Contact</span></a></li>
+    </ul>
+  </aside>
+
+  <main>
+  <section class="section">
+    <div class="section-label">What we sell</div>
+    <div class="section-title">Our Products</div>
+    <div class="products">
+
+      <!-- MURATINA -->
+      <div class="product">
+        <img src="images/101.jpg" class="product-img" alt="Muratina"/>
+        <div class="product-body">
+          <div class="product-name">Muratina</div>
+          <div class="product-desc">Naturally fermented traditional Kikuyu brew. Rich, earthy and authentic.</div>
+        </div>
+        <button class="order-btn" onclick="orderNow('Hi! I want to order Muratina. Please confirm availability and delivery fee.\n\nMy location: ')">
+          Tap to order
+        </button>
+      </div>
+
+      <!-- KIRATINA -->
+      <div class="product">
+        <img src="images/OIP%20(1).webp" class="product-img" alt="Kiratina Fruit"/>
+        <div class="product-body">
+          <div class="product-name">Kiratina Fruit</div>
+          <div class="product-scientific">Kigelia africana</div>
+          <div class="product-desc">Fresh Kigelia africana, picked ripe. The key ingredient for brewing authentic muratina.</div>
+        </div>
+        <button class="order-btn" onclick="orderNow('Hi! I want to order Kiratina fruit (Kigelia africana). Please confirm availability and delivery fee.\n\nMy location: ')">
+          Tap to order
+        </button>
+      </div>
+
+      <!-- HONEY -->
+      <div class="product">
+        <img src="images/OIP.webp" class="product-img" alt="Honey"/>
+        <div class="product-body">
+          <div class="product-name">Honey</div>
+          <div class="product-desc">Pure natural unsieved honey — unfiltered, raw, straight from the hive.</div>
+        </div>
+        <button class="order-btn" onclick="orderNow('Hi! I want to order Honey. Please confirm availability and delivery fee.\n\nMy location: ')">
+          Tap to order
+        </button>
+      </div>
+
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <p>© 2026 <span>Order Muratina Drink</span> · Nairobi, Kenya 🇰🇪 · 100% natural, 100% real</p>
+  </footer>
+
+  <script src="app.js?v=5"></script>
+</body>
+</html>
