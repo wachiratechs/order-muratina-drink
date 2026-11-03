@@ -58,12 +58,17 @@ if (slides.length > 1) {
     if (e.key === 'Escape' && drawer.classList.contains('open')) { setOpen(false); btn.focus(); }
   });
 
-  // highlight the page you are on
-  const here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  // the menu closes as soon as any menu link is tapped (also the link of the page you are on)
+  drawer.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  // coming back with the Back button must never show the menu open
+  window.addEventListener('pageshow', () => setOpen(false));
+
+  // highlight the page you are on (works with index.html, products.html, or the same pages without .html)
+  const seg = location.pathname.split('/').pop().toLowerCase().replace(/\.html$/, '');
+  const here = (seg === '' || seg === 'index') ? 'index' : seg;
   drawer.querySelectorAll('a[data-page]').forEach((a) => {
-    if (a.getAttribute('data-page') === here) {
-      a.classList.add('active');
-      a.setAttribute('aria-current', 'page');
-    }
+    const on = a.getAttribute('data-page').toLowerCase().replace(/\.html$/, '') === here;
+    a.classList.toggle('active', on);
+    if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
   });
 })();

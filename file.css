@@ -30,7 +30,12 @@ body {
   font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: #e8d5a3;
+  min-height: 100vh;
+  min-height: 100dvh;          /* the visible screen on phones, even with the browser bar */
+  display: flex;
+  flex-direction: column;
 }
+body > main { flex: 1 0 auto; }   /* the page content takes all the space between header and footer */
 
 /* =========================================
    NAV
@@ -64,7 +69,7 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: 19px;
   font-weight: 700;
-  color: #d4a843;
+  color: #F4E8C1;
 }
 .menu-btn {
   display: flex;
@@ -176,7 +181,8 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 .drawer-links .ni { width: 20px; height: 20px; color: #d4a843; }
-.drawer-links a.active { background: rgba(212,168,67,0.15); color: #d4a843; }
+.drawer-links a.active { background: rgba(212,168,67,0.24); color: #F4E8C1; box-shadow: inset 3px 0 0 #d4a843; }
+.drawer-links a.active .ni { color: #d4a843; }
 .drawer-links a:focus-visible { background: #d4a843; color: var(--bg); outline: none; }
 .drawer-links a:focus-visible .ni { color: var(--bg); }
 @media (hover: hover) {
@@ -385,14 +391,20 @@ a.btn-outline { display: inline-block; text-decoration: none; }
 }
 .product:hover { border-color: var(--dim); }
 
-.product-img {
+.product-photo {
   width: 96px;
   height: 96px;
-  object-fit: cover;
-  border-radius: 8px;
   flex-shrink: 0;
-  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--card-2);
 }
+.product-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* photo with a white background: the white is made see-through (filter is in products.html) */
+.product-photo.cutout {
+  background: radial-gradient(circle at 50% 62%, rgba(212,168,67,0.30), rgba(212,168,67,0) 68%), var(--card-2);
+}
+.product-photo.cutout img { filter: url(#whiteToAlpha); }
 .product-body { flex: 1; min-width: 0; }
 .product-name { font-size: 16px; color: #e8d5a3; font-weight: 600; margin-bottom: 2px; }
 .product-scientific { font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 2px; }
@@ -489,6 +501,7 @@ footer {
   padding: 18px 24px;
   text-align: center;
 }
+footer { flex-shrink: 0; }
 footer p { font-size: 12px; color: var(--alt-dim); }
 footer span { color: #d4a843; }
 
@@ -502,9 +515,8 @@ footer span { color: #d4a843; }
 .btn-outline:active { background: #d4a843; color: var(--bg); }
 
 /* =========================================
-   PAGE LAYOUT (About / Contact pages fill the screen)
+   PAGE LAYOUT (Contact content is centred between header and footer)
 ========================================= */
-.page-fill { min-height: calc(100vh - 66px - 58px); }
 .contact-strip.page-fill {
   display: flex;
   flex-direction: column;
@@ -525,6 +537,6 @@ footer span { color: #d4a843; }
   .section { padding: 28px 16px; }
   .section-title { font-size: 26px; }
   .product { flex-wrap: wrap; }
-  .product-img { width: 80px; height: 80px; }
+  .product-photo { width: 80px; height: 80px; }
   .order-btn { width: 100%; }
 }
